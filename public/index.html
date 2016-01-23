@@ -6,12 +6,88 @@
     <title>Nick Jones</title>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Nova+Square' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./css/main.css"/>
     <base href="/">
   </head>
-  <body>
-    <div ui-view></div>
-    <!-- SCRIPTS -->
+  <body id="skrollr-body">
+
+<!-- PARALLAX NAVBAR IN PRGRESS -->
+    <div class="parallax">
+      <div class="parallax__group1" id="group1">
+
+        <div class="parallax__layer parallax__layer--base">
+          <div class="title-base">
+
+            <div class='row' layout="row">
+              <div flex>
+                <a ui-sref='home'>
+                 <span flex class='row-bracket'> [ </span>
+                 <span flex class='row-category'>About</span>
+                 <span flex class='row-bracket'> ] </span>
+               </a>
+              </div>
+              <div flex>
+                <a ui-sref='projects'>
+                  <span flex class='row-bracket'> [ </span>
+                  <span flex class='row-category'>Projects</span>
+                  <span flex class='row-bracket'> ] </span>
+                </a>
+              </div>
+              <div flex></div>
+              <div flex>
+                <a ui-sref='skills'>
+                  <span flex class='row-bracket'> [ </span>
+                  <span flex class='row-category'>Skills</span>
+                  <span flex class='row-bracket'> ] </span>
+                </a>
+              </div>
+              <div flex>
+                <a ui-sref='contact'
+                  <span flex class='row-bracket'> [ </span>
+                  <span flex class='row-category'>Contact</span>
+                  <span flex class='row-bracket'> ] </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="parallax__layer parallax__layer--back">
+          <div class="title-back">
+            <img src="./images/n_logo.png" data-top="width: 200px;" data-end="width: 10px;">
+            <h3 data-0="font-size: 50px;" data-50="font-size: 1px;">Nick Jones</h3>
+          </div>
+        </div>
+<!-- Trying skrllr. Want image to shrink as the page is scrolled down.  -->
+<!-- Data-top works, but data-end doesnt seem to recognize scroll events. -->
+
+        <div class="parallax__layer parallax__layer--deep">
+          <div class="title-deep"></div>
+        </div>
+
+      </div>
+      <div class="parallax__group2" id="group2">
+        <div class="parallax__layer parallax__layer--base">
+          <div class="title-base2">
+
+<!-- Need to wrap the second section in a md-content tag so I can easily switch ui-views in angular partials-->
+<!-- Bug: I need to delay scroll in md-content until the page has been fully scrolled down -->
+
+            <div layout='column' tabindex='-1' role='main' flex class='layout-column flex'>
+              <md-content md-scroll-y flex layout-padding class='layout-padding ng-scope flex' style="background:black;">
+                <div ui-view></div>
+              </md-content>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
@@ -21,7 +97,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
     <script src="https://cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
-    <!-- ANGULAR APP -->
+
+<!-- SKROLLR SCRIPT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+
+    <script type="text/javascript">
+    ( function( $ ) {
+        var s = skrollr.init({
+            render: function(data) {
+                console.log(data.curTop);
+            }
+        });
+    } )( jQuery );
+    </script>
+
+<!-- ANGULAR APP -->
     <script src="./js/app/app.angular.js"></script>
   </body>
 </html>

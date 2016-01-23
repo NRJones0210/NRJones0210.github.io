@@ -11,11 +11,35 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', functio
       templateUrl: 'partials/home.html',
       controller: 'HomeCtrl'
     })
-    $locationProvider.html5Mode(true);
+    .state('projects', {
+      url: '/projects',
+      templateUrl: 'partials/projects.html',
+      controller: 'ProjectsCtrl'
+    })
+    .state('skills', {
+      url: '/skills',
+      templateUrl: 'partials/skills.html',
+      controller: 'SkillsCtrl'
+    })
+    .state('contact', {
+      url: '/contact',
+      templateUrl: 'partials/contact.html',
+      controller: 'ContactCtrl'
+    })
+  $locationProvider.html5Mode(true);
 }])
 
 
 // CONTROLLER
 app.controller("HomeCtrl", ["$scope", function ($scope) {
-  $scope.message = "Home"
+  $scope.message = "About"
+}])
+app.controller("ProjectsCtrl", ["$scope", function ($scope) {
+  $scope.message = "Projects"
+}])
+app.controller("SkillsCtrl", ["$scope", function ($scope) {
+  $scope.message = "Skills"
+}])
+app.controller("ContactCtrl", ["$scope", function ($scope) {
+  $scope.message = "Contact"
 }])
