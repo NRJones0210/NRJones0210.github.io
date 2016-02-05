@@ -131,3 +131,12 @@ html, body {
   line-height: 50px;
   font-weight: 600;
 }
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border-color:#DD8647;
+  text-align: center;
+}
