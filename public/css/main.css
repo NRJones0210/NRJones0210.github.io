@@ -140,3 +140,8 @@ hr {
   border-color:#DD8647;
   text-align: center;
 }
+
+a[ id= "bottom" ]:target ~ #group2 {
+    -webkit-transform: translateY( -1000px );
+    transform: translateY( -1000px );
+}

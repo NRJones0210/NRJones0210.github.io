@@ -20,7 +20,7 @@
                 <div class="parent">
                   <div class="item">
                     <div flex>
-                      <a ui-sref='home'>
+                      <a href="#bottom" ui-sref='home'>
                        <span flex class='row-bracket'> [ </span>
                        <span flex class='row-category'>About</span>
                        <span flex class='row-bracket'> ] </span>
@@ -64,12 +64,16 @@
           <div class="parallax__layer parallax__layer--deep">
             <div class="title" id="logo_block">
               <img class="center"id="logo_photo" src="./images/nj_logo.png" style="width:200px;">
+              <!-- <h3>Nick Jones</h3> -->
             </div>
           </div>
         </div>
         <div class="parallax__group2" id="group2">
           <div class="parallax__layer parallax__layer--base">
-          </div> 
+            <div class="title">
+              <div ui-view></div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
